@@ -7,9 +7,10 @@ class FuncionesNumerosTest {
     @org.junit.jupiter.api.Test
     void clasificar() {
         FuncionesNumeros clasificar = new FuncionesNumeros();
-        assertEquals("Los tres números son iguales", clasificar.clasificar(1, 1, 1));
-        assertEquals("Hay dos números iguales", clasificar.clasificar(1, 1, 2));
-        assertEquals("Los tres números son distintos", clasificar.clasificar(1, 2, 3));
+        assertEquals("0", clasificar.clasificar(1, 1));
+        assertEquals("1", clasificar.clasificar(2, 1));
+        assertEquals("-1", clasificar.clasificar(1, 2));
+
     }
 
     @org.junit.jupiter.api.Test
