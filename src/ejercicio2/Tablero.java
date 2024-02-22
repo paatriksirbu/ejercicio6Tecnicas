@@ -81,23 +81,31 @@ public class Tablero {
     }
 
 
+    public static boolean disparar(char[][] tablero, int[] intento, int[] ubicación_barco) {
+        if (intento[0] - 1 == ubicación_barco[0] && intento[1] - 1 == ubicación_barco[1]) {
+
+            marcarTocadoYHundido(tablero, intento);
+            mostrarTablero(tablero);
+            return true;
+        } else {
+            marcarAgua(tablero, intento);
+            mostrarTablero(tablero);
+            return false;
+        }
+    }
     public static void jugarBatallaNaval() {    // Jugar Batalla Naval
         char[][] tablero = crearTablero(4, 4);
         int[] ubicación_barco = elegirUbicaciónAleatoria(tablero);
         int[] intento;
+        boolean juegoTerminado = false;
 
         do {
             intento = obtenerIntento();
-            if (intento[0] == ubicación_barco[0] - 1 && intento[1] - 1 == ubicación_barco[1]) {
-                marcarTocadoYHundido(tablero, intento);
-                mostrarTablero(tablero);
-                System.out.println("Tocado y hundido - Usted ha ganado!!!");
-                break;
-            } else {
-                marcarAgua(tablero, intento);
-                mostrarTablero(tablero);
+            juegoTerminado = disparar(tablero, intento, ubicación_barco);
+            if (juegoTerminado) {
+                System.out.println("¡Felicidades! ¡Hundiste el barco!");
             }
-        } while (true);
+        } while (!juegoTerminado);
     }
 
 }
