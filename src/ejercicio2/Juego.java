@@ -38,8 +38,9 @@ public class Juego {
         boolean juegoTerminado = false;
 
         while(!juegoTerminado){
-            int[] intentos = ControladorEntrada.obtenerIntento();
-            juegoTerminado = barco.disparar(getTablero(), intentos);
+            int[] intento = ControladorEntrada.obtenerIntento();
+            juegoTerminado = barco.disparar(getTablero(), intento);
+            intentos++;
 
             if (juegoTerminado){
                 System.out.println("¡Felicidades!");
