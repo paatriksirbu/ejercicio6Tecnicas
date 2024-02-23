@@ -44,7 +44,7 @@ public class Juego {
 
             if (juegoTerminado){
                 System.out.println("¡Felicidades!");
-                System.out.println(nombre + " con: "+ nombreBarco + " "+ "consuió hundir el barco en " + intentos+ "intentos.");
+                System.out.println(nombre + " con: "+ nombreBarco + " "+ "consiguió hundir el barco en " + intentos + " intentos.");
                 System.out.println("¡Gracias por jugar!");
             }
         }
