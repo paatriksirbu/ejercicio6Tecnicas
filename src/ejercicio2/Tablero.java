@@ -1,6 +1,4 @@
 package ejercicio2;
-import java.util.Random;
-import java.util.Scanner;
 
 public class Tablero {
 
@@ -48,8 +46,6 @@ public class Tablero {
     public static void marcarTocadoYHundido(char[][] tablero, int[] intento) {
         tablero[intento[0] - 1][intento[1] - 1] = 'X'; // X de Tocado y hundido
     }
-
-
 
 
 }

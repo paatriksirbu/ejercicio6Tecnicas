@@ -7,7 +7,7 @@ public class JuegoBatallaNaval{
     public static void main(String[] args) {
 
         Tablero tablero = new Tablero();
-        tablero.jugarBatallaNaval();
+        Juego juego = new Juego();
     }
 
 }
