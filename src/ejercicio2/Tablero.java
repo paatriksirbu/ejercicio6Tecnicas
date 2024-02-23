@@ -93,7 +93,14 @@ public class Tablero {
             return false;
         }
     }
-    public static void jugarBatallaNaval() {    // Jugar Batalla Naval
+    public static void jugarBatallaNaval() {
+        // Jugar Batalla Naval
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Bienvenido a Batalla Naval!");
+        System.out.println("Introduzca el nombre del jugador: ");
+        String nombre = sc.nextLine();
+
+
         char[][] tablero = crearTablero(4, 4);
         int[] ubicación_barco = elegirUbicaciónAleatoria(tablero);
         int[] intento;
@@ -103,7 +110,7 @@ public class Tablero {
             intento = obtenerIntento();
             juegoTerminado = disparar(tablero, intento, ubicación_barco);
             if (juegoTerminado) {
-                System.out.println("¡Felicidades! ¡Hundiste el barco!");
+                System.out.println("¡Felicidades " + nombre + "!" + "¡Hundiste el barco!");
             }
         } while (!juegoTerminado);
     }
