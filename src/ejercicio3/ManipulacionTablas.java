@@ -2,7 +2,7 @@ package ejercicio3;
 
 import java.util.Arrays;
 
-public class ManipulacionTablas{
+public class ManipulacionTablas{    //Clase principal que genera una tabla aleatoria y busca el número mayor de la misma y las imprime en consola.
     public static void main(String[] args) {
         NumAleatorio generadorAleatorio = new GeneradorAleatorio();
         GeneradorTablaAleatoria generadorTablaAleatoria = new GeneradorTablaAleatoria(generadorAleatorio);
