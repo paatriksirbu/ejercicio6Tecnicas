@@ -11,7 +11,6 @@ public class Juego {
     private String nombreBarco;
 
 
-
     public char[][] getTablero() {
         return this.tablero;
     }
@@ -33,7 +32,7 @@ public class Juego {
         jugar();
 
     }
-    private void jugar(){
+    protected void jugar(){
         Scanner sc = new Scanner(System.in);
         boolean juegoTerminado = false;
 
@@ -52,6 +51,11 @@ public class Juego {
     }
 
 
+    public int getContadorIntentos() {
+        return intentos;
+    }
 
-
+    public void setContadorIntentos(int intentos) {
+        this.intentos = intentos;
+    }
 }

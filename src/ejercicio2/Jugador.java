@@ -14,7 +14,7 @@ public class Jugador {
     }
 
     public int[] getIntento() {
-        return getIntento();
+        return intento;
     }
 
 
