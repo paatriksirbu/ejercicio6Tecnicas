@@ -1,4 +1,4 @@
-package ejercicio5;
+package ejercicio5.clases;
 
 public class DibujarCaracter {
 }
