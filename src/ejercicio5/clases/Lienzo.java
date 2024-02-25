@@ -56,6 +56,17 @@ public class Lienzo {
         mostrarLienzo();
     }
 
+    public char getCaracter(int i, int j) {
+        if (i < 0 || j < 0 || i >= alto || j >= ancho) {
+            throw new IllegalArgumentException("Las coordenadas están fuera de los límites del lienzo.");
+        }
+        return matriz[i][j];
+    }
+
+    public char[][] getLienzo() {
+        return matriz;
+    }
+
 
 
 }
