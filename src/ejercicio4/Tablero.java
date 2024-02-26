@@ -15,7 +15,7 @@ public class Tablero {
         crearTablero();
     }
 
-    public void crearTablero() {
+    public void crearTablero() {    // Método para crear un tablero
         tablero = new char[8][8];
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
@@ -24,7 +24,7 @@ public class Tablero {
         }
     }
 
-    public void colocarOvejaAleatoria(int numeroOvejas) {
+    public void colocarOvejaAleatoria(int numeroOvejas) {   // Método para colocar ovejas aleatoriamente
         random = new Random();
         int i = random.nextInt(filas);
         int j = random.nextInt(columnas);
@@ -40,7 +40,7 @@ public class Tablero {
         }
     }
 
-    public void mostrarTablero() {
+    public void mostrarTablero() {  // Método para mostrar el tablero
         for (int i = 0; i < filas; i++) {
             System.out.print("|");
             for (int j = 0; j < columnas; j++) {
@@ -59,15 +59,15 @@ public class Tablero {
     }
 
 
-    private boolean esPosicionValida(int fila, int columna) {
+    private boolean esPosicionValida(int fila, int columna) {   // Método para comprobar si una posición es válida
         return fila >= 0 && fila < filas && columna >= 0 && columna < columnas;
     }
 
     private boolean esCasillaVacia(int fila, int columna) {
         return this.tablero[fila][columna] == ' ';
-    }
+    }   // Método para comprobar si una casilla está vacía
 
-    public boolean realizarMovimiento(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino) {
+    public boolean realizarMovimiento(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino) { // Método para realizar un movimiento
         if (!esPosicionValida(filaDestino, columnaDestino) || !esCasillaVacia(filaDestino, columnaDestino)) {
             return false; // Movimiento inválido
         }
@@ -90,13 +90,13 @@ public class Tablero {
         return false; // Movimiento inválido
     }
 
-    private void moverOveja(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino){
+    private void moverOveja(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino){    // Método para mover una oveja
         this.tablero[filaDestino][columnaDestino] = this.tablero[filaOrigen][columnaOrigen];
         this.tablero[filaOrigen][columnaOrigen] = ' ';
     }
 
     // En la clase Tablero
-    public List<Posicion> obtenerPosicionesAdyacentesVacias(int fila, int columna) {
+    public List<Posicion> obtenerPosicionesAdyacentesVacias(int fila, int columna) {    // Método para obtener posiciones adyacentes vacías
         List<Posicion> posicionesAdyacentesVacias = new ArrayList<>();
 
         // Verifica las 8 posiciones adyacentes
