@@ -1,0 +1,57 @@
+@startuml
+
+class Barco {
+    - int[] ubicacion
+    + Barco(int[] ubicacion)
+    + int[] getUbicacion()
+    + void setUbicacion(int[] ubicacion)
+    + boolean disparar(char[][] tablero, int[] intento)
+    + static int[] elegirUbicaciónAleatoria(char[][] tablero)
+}
+
+class ControladorEntrada {
+    - static int contadorIntentos
+    + int getContadorIntentos()
+    + static int[] obtenerIntento()
+}
+
+class Juego {
+    - char[][] tablero
+    - Barco barco
+    - Jugador jugador
+    - int intentos
+    - String nombre
+    - String nombreBarco
+    + char[][] getTablero()
+    + Juego()
+    + protected void jugar()
+    + int getContadorIntentos()
+    + void setContadorIntentos(int intentos)
+}
+
+class JuegoBatallaNaval {
+    + static void main(String[] args)
+}
+
+class Jugador {
+    - String nombre
+    - int[] intento
+    + Jugador(String nombre, int[] intento)
+    + String getNombre()
+    + int[] getIntento()
+}
+
+class Tablero {
+    + static char[][] crearTablero(int filas, int columnas)
+    + static void mostrarTablero(char[][] tablero)
+    + static void marcarAgua(char[][] tablero, int[] intento)
+    + static void marcarTocadoYHundido(char[][] tablero, int[] intento)
+}
+
+Barco -- Tablero
+Juego -- Barco
+Juego -- Jugador
+JuegoBatallaNaval -- Tablero
+JuegoBatallaNaval -- Juego
+
+@enduml

@@ -1,0 +1,55 @@
+@startuml
+
+class App {
+}
+
+interface ComandoDibujo {
+    +ejecutar(lienzo: Lienzo): void
+}
+
+class CambiarColor implements ComandoDibujo {
+    -i: int
+    -j: int
+    -nuevoCaracter: char
+    +CambiarColor(i: int, j: int, nuevoCaracter: char)
+    +ejecutar(lienzo: Lienzo): void
+}
+
+class DibujarCaracter implements ComandoDibujo {
+    -i: int
+    -j: int
+    -caracter: char
+    +DibujarCaracter(i: int, j: int, caracter: char)
+    +ejecutar(lienzo: Lienzo): void
+}
+
+class DibujarRectangulo implements ComandoDibujo {
+    -i1: int
+    -j1: int
+    -i2: int
+    -j2: int
+    -caracter: char
+    +DibujarRectangulo(i1: int, j1: int, i2: int, j2: int, caracter: char)
+    +ejecutar(lienzo: Lienzo): void
+}
+
+class Lienzo {
+}
+
+class Menu {
+    -lienzo: Lienzo
+    +Menu(lienzo: Lienzo)
+    +mostrarMenu(): void
+}
+
+App --> Menu
+App --> Lienzo
+Menu --> Lienzo
+CambiarColor ..> Lienzo
+DibujarCaracter ..> Lienzo
+DibujarRectangulo ..> Lienzo
+CambiarColor ..|> ComandoDibujo
+DibujarCaracter ..|> ComandoDibujo
+DibujarRectangulo ..|> ComandoDibujo
+
+@enduml

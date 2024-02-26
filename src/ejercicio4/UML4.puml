@@ -1,0 +1,69 @@
+@startuml
+
+interface GestorMovimientosInt {
+    +validarMovimiento(): boolean
+    +realizarMovimiento(tablero: Tablero, movimiento: Movimiento): void
+}
+
+interface ValidadorMovimientosInt {
+    +validarMovimiento(movimiento: Movimiento, tablero: Tablero): boolean
+}
+
+class GestorMovimientos {
+    -validadorMovimientos: ValidadorMovimientosInt
+    -movimiento: Movimiento
+    -tablero: Tablero
+    -random: Random
+    +GestorMovimientos(tablero: Tablero, movimiento: Movimiento)
+    +validarMovimiento(): boolean
+    +realizarMovimiento(tablero: Tablero, movimiento: Movimiento): void
+    +crearMovimiento(): Movimiento
+    +moverOveja(movimiento: Movimiento, tablero: Tablero): void
+}
+
+class JuegoOvejas {
+    -tablero: Tablero
+    -validador: ValidadorMovimientos
+    -gestor: GestorMovimientos
+    +JuegoOvejas()
+    +iniciarJuego(): void
+}
+
+class Movimiento {
+    -posicionInicial: int
+    -posicionFinal: int
+    +Movimiento(posicionInicial: int, posicionFinal: int)
+    +getPosicionInicial(): int
+    +getPosicionFinal(): int
+    +setPosicionInicial(posicionInicial: int): void
+    +setPosicionFinal(posicionFinal: int): void
+}
+
+class Posicion {
+    -fila: int
+    -columna: int
+    +Posicion(fila: int, columna: int)
+    +getFila(): int
+    +getColumna(): int
+}
+
+class Tablero {
+}
+
+class ValidadorMovimientos implements ValidadorMovimientosInt {
+    -posicionInicial: int
+    -posicionFinal: int
+    +ValidadorMovimientos()
+    +validarMovimiento(movimiento: Movimiento, tablero: Tablero): boolean
+}
+
+GestorMovimientos ..> ValidadorMovimientosInt
+GestorMovimientos --> Movimiento
+GestorMovimientos --> Tablero
+JuegoOvejas --> Tablero
+JuegoOvejas --> ValidadorMovimientos
+JuegoOvejas --> GestorMovimientos
+Movimiento --> Posicion
+ValidadorMovimientos ..> ValidadorMovimientosInt
+
+@enduml

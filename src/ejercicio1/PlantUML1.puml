@@ -1,0 +1,15 @@
+@startuml
+
+class FuncionesNumeros {
+  - attributeType attributeName
+  + int mayor(int a, int b)
+  + String clasificar(int a, int b)
+}
+
+class SistemaComparacionClasificacion {
+  + void main(String[] args)
+}
+
+SistemaComparacionClasificacion --> FuncionesNumeros : uses
+
+@enduml
